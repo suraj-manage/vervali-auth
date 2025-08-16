@@ -1,0 +1,122 @@
+.ticket-list {
+  display: flex;
+  flex-direction: column;  // vertical stacking
+  gap: 2vh;
+}
+
+.ticket-row {
+  display: flex;
+  justify-content: space-between; // push edit button right
+  align-items: center;
+  margin-top: 20px;
+  width: 800px;                    // scale to container width
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  background-color: #121b2b;
+  padding: 10px 10px;
+  border-radius: 17px;
+  color: rgb(202, 197, 197);
+  flex: 3;                        // take remaining width
+}
+
+.content-icon {
+  font-size: 35px;;
+  display: flex;
+  padding: 1vh 1vh;
+  background-color: rgb(56, 56, 66);
+  border-radius: 10px;
+  margin-right: 11px;
+  color: #bc04ef;
+}
+
+.content-text {
+  display: flex;
+  flex-direction: column;
+
+  .content-title-text {
+    font-size: medium;
+    word-spacing: 2px;
+    overflow-wrap: break-word;
+    font-family: sans-serif;
+  }
+
+  .content-desp-text {
+    font-size: small;
+    overflow-wrap: break-word;
+  }
+}
+
+.edit-btn {
+  background: #171619;
+  color: rgb(202, 197, 197);
+  height: fit-content;
+  border: none;
+  border-radius: 30px;
+  padding: 1px 25px;
+  cursor: pointer;
+  display: flex;
+  font-size: 10px;
+  align-items: center;
+  margin: 20px 19px;
+
+  &:hover {
+    opacity: 0.89;
+  }
+  .edit-btn i {
+  vertical-align: middle; // keeps it aligned with text
+  margin-right: 0.5rem;
+  color: white;
+  padding: 10px 10px;
+  border-radius: 25px;
+}
+
+
+  .edit-btn-icon {
+    font-size: 18px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .ticket-row {
+    flex-direction: column; // stack content + edit button vertically
+    width: 100%;
+    align-items: flex-start;
+  }
+  
+  .content{
+    width: 80%;
+    flex-direction: row;
+  }
+  .content-title-text{
+    font-size: x-larger;
+  }
+
+  .edit-btn {
+    margin-left: 0; 
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .content{
+    width: 90%;
+  }
+  .content-text .content-title-text {
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .content-text .content-desp-text {
+    font-size: smaller;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+
+  .edit-btn {
+    padding: 8px 12px;
+    font-size: x-small;
+  }
+}

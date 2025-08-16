@@ -1,0 +1,333 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .left-section {
+    display: flex;
+    align-items: center;
+    gap: 10px; // space between back button and h2
+  }
+
+  .back-btn {
+    display: flex;             /* Make icon & text align horizontally */
+    align-items: center;       /* Center vertically */
+    gap: 6px;                  /* Space between icon and text */
+    background: #56585c;
+    border: 1px solid #c1b2d0;
+    color: white;
+    padding: 7px 20px;
+    border-radius: 11px;
+    cursor: pointer;
+
+    svg {                      /* Make icon vertically centered */
+      font-size: medium;
+    }
+  }
+
+  .add-btn {
+    display: flex;               // make icon + text flex children
+    align-items: center;         // vertically center them
+    gap: 6px;                    // spacing between icon and text
+    background: #9818ab;         // accent color
+    color: white;
+    padding: 6px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-family:  'Arial Narrow Bold', sans-serif;  
+  }
+}
+
+/* Moved OUT of .top-bar to avoid breaking layout */
+.table-header {
+  padding: 20px;
+  background-color: #0f141d;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: grid;
+  border-radius: 10px;
+  grid-template-columns: 2fr 1.24fr 0.5fr; // Script / Date / Action proportions
+  padding: 10px 15px;
+  font-weight: bold;
+  padding-top: 13px;
+  .action{
+    vertical-align: center;
+    padding-left: 50px;
+  }
+}
+
+.edit-ticket {
+  border-radius: 30px;
+  padding: 20px;
+  background-color: #17202e;
+  color: white;
+  font-family: Arial, sans-serif;
+
+  .table-row {
+    display: grid;
+    grid-template-columns: 2fr 1.22fr 0.6fr; // match header
+    padding: 10px 0;
+    align-items: center;
+    margin-left: 10px;
+
+    .script-info {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+
+      .icon{
+        height: 25px;
+        display: flex;
+        padding: 7px 7px;
+        background-color: rgb(56, 56, 66);
+        border-radius: 15px;
+        color: #bc04ef;
+        align-items: center;
+      }
+      // .color-dot {
+      //   width: 12px;
+      //   height: 12px;
+      //   border-radius: 50%;
+      //   margin-top: 4px;
+      // }
+
+      strong {
+        font-size: 1rem;
+      }
+
+      .duration {
+        font-size: 0.85rem;
+        color: #aaa;
+        padding: 2px 4px;
+        margin-left: 6px;
+        border-radius: 8px;
+        position: relative;
+        top: -2px;
+      }
+
+      .desc {
+        margin: 2px 0 0;
+        font-size: 0.85rem;
+        color: #ccc;
+      }
+    }
+
+    .date {
+      display: flex;
+      flex-direction: column; /* Stack vertically */
+      font-size: 0.85rem;
+      color: #aaa;
+
+      .time {
+          padding-left: 11px;
+          font-size: 0.8rem;
+          color: #ccc;
+          margin-top: 2px;
+    } 
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+
+      i {
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+    
+
+        .edit-btn {
+            background-color: #57365f !important;
+            border: 5px solid #6d1182 !important;
+            color: white;
+            height: 36px;
+            width: 90px;
+            padding: 0px 10px;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: small;
+        }
+
+        .delete-btn {
+            display: flex;
+            align-items: center;
+            height: 30px;
+            background: rgb(229, 83, 83);
+            color: red;
+            padding: 0px 10px;
+            border: 3px solid red;
+            border-radius: 15px;
+            cursor: pointer;
+
+            svg {
+                display: block;
+            }
+
+            &:hover {
+                background: rgb(180, 40, 40);
+            }
+        } 
+        }
+
+  }
+}
+/* Default = Desktop (your current styles) */
+
+/* Tablet: stack date + actions more neatly */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column; /* Stack back-btn, heading, add-btn */
+    align-items: flex-start;
+    gap: 12px;
+
+    .left-section {
+      flex-wrap: wrap; /* allow wrapping */
+      gap: 8px;
+    }
+
+    .add-btn,
+    .back-btn {
+      padding: 6px 14px;
+      font-size: 0.9rem;
+    }
+  }
+
+  .table-header {
+    grid-template-columns: 1.5fr 1fr 0.7fr; /* squeeze proportion */
+    font-size: 0.9rem;
+    padding: 8px 10px;
+
+    .action {
+      padding-left: 20px;
+    }
+  }
+
+  .edit-ticket {
+    .table-row {
+      grid-template-columns: 1.5fr 1fr 0.7fr; /* match header */
+      gap: 6px;
+
+      .script-info {
+        strong {
+          font-size: 0.95rem;
+        }
+        .duration {
+          font-size: 0.75rem;
+          top: -1px;
+        }
+        .desc {
+          font-size: 0.8rem;
+        }
+      }
+
+      .date {
+        font-size: 0.8rem;
+        .time {
+          padding-left: 6px;
+          font-size: 0.75rem;
+        }
+      }
+
+      .actions {
+        gap: 6px;
+
+        .edit-btn {
+          width: 75px;
+          height: 32px;
+          font-size: 0.8rem;
+        }
+
+        .delete-btn {
+          height: 28px;
+          padding: 0 8px;
+          border-width: 2px;
+        }
+      }
+    }
+  }
+}
+
+/* Mobile: collapse into vertical stack */
+@media (max-width: 480px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: stretch;
+
+    .left-section {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .add-btn{
+      width: 100%; /* full-width for tapability */
+      justify-content: center;
+    }
+     .back-btn {
+      width: 18%; /* full-width for tapability */
+      justify-content: center;
+      font-size: small;
+    }
+  }
+
+  .table-header {
+    display: none; /* hide big header bar on mobile */
+  }
+
+  .edit-ticket {
+    .table-row {
+      grid-template-columns: 1fr; /* one column */
+      padding: 12px;
+      margin-left: 0;
+      background-color: #111927;
+      border-radius: 12px;
+      margin-bottom: 10px;
+
+      .script-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+
+        .icon {
+          margin-bottom: 4px;
+          align-self:self-end;
+        }
+
+        strong {
+          font-size: 1rem;
+        }
+      }
+
+      .date {
+        margin-top: 6px;
+        font-size: 0.85rem;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .time {
+          padding-left: 0;
+          margin-top: 0;
+        }
+      }
+
+      .actions {
+        margin-top: 8px;
+        justify-content: flex-end;
+        gap: 8px;
+
+        .edit-btn{
+          flex: 1; /* take equal width */
+          justify-content: center;
+        } 
+        .delete-btn {
+          flex: 1; /* take equal width */
+          justify-content: center;
+          height: 33px;
+          width: 87px;
+          margin-bottom: 19.3px;
+        }
+      }
+    }
+  }
+}

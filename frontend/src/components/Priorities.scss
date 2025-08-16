@@ -1,0 +1,223 @@
+.new-priorities {
+  border-radius: 30px;
+  padding: 30px;
+  background-color: #17202e;
+  color: white;
+  font-family: Arial, sans-serif;
+
+  .form {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); // 2-column layout for desktop
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-size: 0.85rem;
+        color: #aaa;
+        margin-bottom: 6px;
+      }
+
+      input {
+        background: transparent;
+        border: 1px solid #444;
+        padding: 10px 12px;
+        border-radius: 12px;
+        color: #fff;
+        outline: none;
+      }
+
+      input:focus {
+        border-color: #9818ab;
+      }
+    }
+
+    .color-options {
+      display: flex;
+      gap: 12px;
+      margin-top: 5px;
+
+      .color-circle {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: 0.2s;
+
+        &.selected {
+          border: 2px solid #fff;
+          box-shadow: 0 0 6px #9818ab;
+        }
+      }
+    }
+
+    .duration {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+
+      .duration-group {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        .time-input-container {
+          display: flex;
+          align-items: center;
+          border: 1px solid #444;
+          border-radius: 12px;
+          background: #17202e;
+          padding: 5px 10px;
+
+          input {
+            width: 180px;
+            border: none;
+            background: transparent;
+            color: #fff;
+            outline: none;
+          }
+
+          .icon {
+            color: #837979;
+            font-size: 18px;
+            margin-left: 4px;
+          }
+
+          div {
+            color: #fff;
+            font-size: 0.85rem;
+            margin-left: 60px;
+          }
+        }
+      }
+    }
+
+    // Full width overrides for desktop
+    .form-row:nth-child(3) {
+      grid-column: 1 / 2;
+    }
+    .form-row:nth-child(4) {
+      grid-column: 2 / 3;
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+
+    .save-btn {
+      background: #9818ab;
+      border: none;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .cancel-btn {
+      background: #333;
+      border: none;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  .back-btn {
+    display: flex;             /* Make icon & text align horizontally */
+    align-items: center;       /* Center vertically */
+    gap: 6px;                  /* Space between icon and text */
+    background: #56585c;
+    border: 1px solid #c1b2d0;
+    color: white;
+    padding: 7px 20px;
+    border-radius: 11px;
+    cursor: pointer;
+
+    svg {                      /* Make icon vertically centered */
+      font-size: medium;
+    }
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0;
+  }
+}
+
+/* Responsive: Tablets */
+@media (max-width: 1024px) {
+  .new-priorities {
+    padding: 20px;
+
+    .form {
+      grid-template-columns: 1fr; // single-column for tablets
+      .duration {
+        flex-direction: column;
+      }
+    }
+
+    .actions {
+      justify-content: center;
+    }
+  }
+}
+
+/* Responsive: Mobile */
+@media (max-width: 768px) {
+  .new-priorities {
+    padding: 15px;
+    border-radius: 20px;
+
+    .form {
+      grid-template-columns: 1fr; // single-column for mobile
+      gap: 15px;
+
+      .duration {
+        flex-direction: column;
+
+        .duration-group {
+          width: 100%;
+          .time-input-container {
+            width: 100%;
+            input {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      .form-row:nth-child(3),
+      .form-row:nth-child(4) {
+        grid-column: 1 / 2; // full width
+      }
+    }
+
+    .actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+
+      h1 {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
