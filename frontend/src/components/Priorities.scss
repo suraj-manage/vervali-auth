@@ -178,13 +178,17 @@
     }
 
     .actions {
-      justify-content: center;
+      justify-content: end;
+      width: 100%;
+    }
+    .actions1 {
+      width: 100%;    
     }
   }
 }
 
 /* Responsive: Mobile */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .new-priorities {
     padding: 15px;
     border-radius: 20px;
@@ -214,6 +218,15 @@
     }
 
     .actions {
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .actions1 {
+      justify-content: center;
+      width: 100%;
       flex-direction: column;
       gap: 10px;
     }
