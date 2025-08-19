@@ -108,6 +108,7 @@
     display: flex;
     gap: 15px;
     margin-top: 25px;
+    justify-self:end;
 
     .save-btn {
       background: #9818ab;
@@ -117,6 +118,13 @@
       border-radius: 12px;
       cursor: pointer;
     }
+  }
+  
+  .actions1 {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    justify-self:start;
 
     .cancel-btn {
       background: #333;

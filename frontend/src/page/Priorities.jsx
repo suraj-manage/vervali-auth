@@ -136,11 +136,13 @@ export default function Priorities() {
           <button className="save-btn" onClick={handleSave}>
             Save
           </button>
-         
-          <button className="cancel-btn" onClick={() => navigate(-1)}>
+        </div>
+        
+         <div className="actions1">
+            <button className="cancel-btn" onClick={() => navigate(-1)}>
             Cancel
           </button>
-        </div>
+          </div>
       </div>
       </div>
     </>
